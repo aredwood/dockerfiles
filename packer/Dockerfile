@@ -1,6 +1,9 @@
 # Debian, with Packer 1.5.6
 FROM debian:stretch-20200422
 
+
+WORKDIR /tmp
+
 RUN apt-get update
 
 RUN apt-get install curl unzip -y
