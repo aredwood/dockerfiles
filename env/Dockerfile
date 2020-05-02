@@ -16,3 +16,7 @@ RUN unzip /tmp/packer.zip
 RUN mv /tmp/packer /usr/local/bin
 
 
+# Set the workdir to /workspaces, compliant with GCP
+# https://cloud.google.com/cloud-build/docs/create-custom-build-steps
+RUN mkdir /workspace
+WORKDIR /workspace
