@@ -1,4 +1,5 @@
-# Debian, with Packer 1.5.6
+# this is a test file I use across projects.
+# i do not recommend using it if you're not me.
 FROM debian:stretch-20200422
 
 
