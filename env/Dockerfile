@@ -15,6 +15,16 @@ RUN unzip /tmp/packer.zip
 
 RUN mv /tmp/packer /usr/local/bin
 
+# Install Python 3 & 2
+RUN apt-get install python python3 -y
+
+# Install Pip
+RUN curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+RUN python3 /tmp/get-pip.py
+
+# Install yq
+RUN pip install yq
+
 
 # Set the workdir to /workspaces, compliant with GCP
 # https://cloud.google.com/cloud-build/docs/create-custom-build-steps
