@@ -33,6 +33,12 @@ RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyri
 RUN apt-get update 
 RUN apt-get install google-cloud-sdk -y
 
+# Install Powershell
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
+RUN apt-get update
+RUN apt-get install powershell -y
+
 # Set the workdir to /workspaces, compliant with GCP
 # https://cloud.google.com/cloud-build/docs/create-custom-build-steps
 RUN mkdir /workspace
