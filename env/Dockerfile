@@ -35,9 +35,7 @@ RUN apt-get install google-cloud-sdk -y
 
 # Install Node.Js
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-RUN source ~/.bashrc
-# LTS at the time of writing
-RUN nvm install 12.16.3 
+RUN bash -c "source ~/.bashrc; nvm install 12.16.3"
 
 # Install Powershell
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
