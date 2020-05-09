@@ -33,6 +33,11 @@ RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyri
 RUN apt-get update 
 RUN apt-get install google-cloud-sdk -y
 
+# Install Node.Js
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+RUN source ~/.bashrc
+RUN nvm install 12.16.3
+
 # Install Powershell
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
