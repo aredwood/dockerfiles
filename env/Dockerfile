@@ -40,7 +40,7 @@ RUN bash -c "source ~/.bashrc; nvm install 12.16.3"
 # Install Yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get install yarn
+RUN apt-get install yarn -y
 
 # Install Powershell
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
