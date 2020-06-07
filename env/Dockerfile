@@ -37,16 +37,17 @@ RUN apt-get install google-cloud-sdk -y
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 RUN bash -c "source ~/.bashrc; nvm install 12.16.3"
 
-# Install Yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get install yarn -y
-
 # Install Powershell
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
 RUN apt-get update
 RUN apt-get install powershell -y
+
+# Install Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get remove cmdtest
+RUN apt-get install yarn -y
 
 # Set the workdir to /workspaces, compliant with GCP
 # https://cloud.google.com/cloud-build/docs/create-custom-build-steps
